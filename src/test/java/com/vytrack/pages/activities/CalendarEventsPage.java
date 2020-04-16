@@ -1,6 +1,6 @@
 package com.vytrack.pages.activities;
 
-import com.vytrack.pages.fleet.AbstractPageBase;
+import com.vytrack.pages.AbstractPageBase;
 import com.vytrack.utilities.BrowserUtilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
