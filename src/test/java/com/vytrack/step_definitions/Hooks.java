@@ -7,7 +7,7 @@ import io.cucumber.java.Before;
 
 public class Hooks {
 
-    @Before
+    @Before("not @driver")
     public void setup(){
         System.out.println("Test Setup");
     }
@@ -23,7 +23,7 @@ public class Hooks {
         //Driver.closeDriver();
     }
 
-    @After
+    @After("not @driver")
     public void teardown(){
         System.out.println("Test cleanup");
         //Driver.closeDriver();
