@@ -25,6 +25,9 @@ public abstract class AbstractPageBase {
     @FindBy(css = "#user-menu > a")
     protected WebElement currentUser;
 
+    @FindBy(css = "[class='btn-group pull-right'] > button")
+    private WebElement saveAndClose;
+
     public AbstractPageBase() {
         PageFactory.initElements(driver, this);
     }
@@ -35,7 +38,10 @@ public abstract class AbstractPageBase {
         wait.until(ExpectedConditions.visibilityOf(currentUser));
         return currentUser.getText().trim();
     }
-
+    public void clickOnSaveAndClose() {
+        BrowserUtilities.wait(3);
+        wait.until(ExpectedConditions.elementToBeClickable(saveAndClose)).click();
+    }
 
     /**
      * Method for vytrack navigation. Provide tab name and module name to navigate

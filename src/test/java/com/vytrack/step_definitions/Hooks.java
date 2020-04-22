@@ -1,32 +1,41 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
-    @Before("not @driver")
+    @Before(order = 2)
     public void setup(){
-        System.out.println("Test Setup");
+        System.out.println("Test setup");
+        Driver.getDriver().manage().window().maximize();
+//        LoginPage loginPage = new LoginPage();
+//        loginPage.login();
     }
 
-    @Before("@driver")
+    @Before(value = "@driver", order = 1)
     public void specialSetup(){
-        System.out.println("Setup for driver");
+        System.out.println("Setup for driver only");
     }
 
     @After("@driver")
-    public void specialTeardown(){
-        System.out.println("Test cleanup for Driver Only");
-        //Driver.closeDriver();
+    public void specialTearDown(){
+        System.out.println("Tear down for driver only");
     }
 
-    @After("not @driver")
-    public void teardown(){
-        System.out.println("Test cleanup");
-        //Driver.closeDriver();
+    @After
+    public void tearDown(Scenario scenario){
+        if (scenario.isFailed()){
+            TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
+            byte[] image = takesScreenshot.getScreenshotAs(OutputType.BYTES);
+            scenario.embed(image, "image/png", scenario.getName());
+        }
+        System.out.println("Test clean up");
+        Driver.closeDriver();
     }
-
 }

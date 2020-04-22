@@ -3,6 +3,7 @@ package com.vytrack.step_definitions;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -44,5 +45,30 @@ public class LoginStepDefinitions {
     public void userLogsInAsADriver() {
         System.out.println("Login as a driver");
         loginPage.login("user15", "UserUser123");
+    }
+
+    @When("user enters {string} username and {string} password")
+    public void userEntersUsernameAndPassword(String string, String string2) {
+        System.out.printf("Login with user name %s and %s password\n", string, string2);
+        loginPage.login(string, string2);
+    }
+
+    @And("user navigates to {string} and {string}")
+    public void userNavigatesToAnd(String tab, String module) {
+        System.out.printf("User clicks on the %s tab and navigates to %s module\n", tab, module);
+        loginPage.navigateTo(tab, module);
+    }
+
+    @When("user logs in as with {string} username and {string} password")
+    public void userLogsInAsWithUsernameAndPassword(String username, String password) {
+        loginPage.login(username, password);
+//        System.out.println("username = " + username);
+//        System.out.println("password = " + password);
+    }
+
+    @Then("user should be {string}")
+    public void userShouldBe(String name) {
+        Assert.assertEquals(name, loginPage.getCurrentUserName());
+        System.out.println("User is: " + loginPage.getCurrentUserName());
     }
 }

@@ -1,6 +1,5 @@
 package com.vytrack.runners;
 
-import com.vytrack.step_definitions.Hooks;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -8,15 +7,15 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         glue = "com.vytrack.step_definitions",
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/activities",
         dryRun = false,
         strict = false,
-        tags = "@scenario_outline",
+        tags = "",
         plugin = {
                 "html:target/cucumber-html-report",
-                "json:target/cucumber1.json"
+                "json:target/cucumber2.json"
         }
 
 )
-public class CucumberRunner {
+        public class ActivitiesTestRunner{
 }
