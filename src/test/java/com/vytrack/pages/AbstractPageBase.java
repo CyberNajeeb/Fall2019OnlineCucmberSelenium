@@ -41,6 +41,7 @@ public abstract class AbstractPageBase {
     public void clickOnSaveAndClose() {
         BrowserUtilities.wait(3);
         wait.until(ExpectedConditions.elementToBeClickable(saveAndClose)).click();
+        waitForLoaderMask();
     }
 
     /**
@@ -66,5 +67,9 @@ public abstract class AbstractPageBase {
 
         //increase this wait rime if still failing
         BrowserUtilities.wait(4);
+        waitForLoaderMask();
+    }
+    private void waitForLoaderMask(){
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[class*='loader-mask']")));
     }
 }

@@ -26,12 +26,16 @@ public class LoginPage extends AbstractPageBase{
     @FindBy(css = "[class='alert alert-error']")
     private WebElement warningMessage;
 
-//    public LoginPage() {
-//        //to connect our webdriver, page class and page factory
-//        //PageFactory - used to use @FindBy annotations
-//        //PageFactory - helps to find elements easier
-//        PageFactory.initElements(Driver.getDriver(), this);
-//    }
+    //PageFactory.initElements(Driver.getDriver(), this); was implemented in the parent, AbstractBasePage class
+    /*
+        public LoginPage() {
+        //to connect our webdriver, page class and page factory
+        //PageFactory - used to use @FindBy annotations
+        //PageFactory - helps to find elements easier
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
+     */
+
 
     public String getWarningMessageText() {
         return warningMessage.getText();
@@ -61,5 +65,20 @@ public class LoginPage extends AbstractPageBase{
         password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(3);
+    }
+
+    public void login(String role){
+        String username = "";
+        if (role.equalsIgnoreCase("Driver")) {
+            username = "user15";
+        }else if (role.equalsIgnoreCase("sales manager")){
+            username = "salesmanager115";
+        }else if (role.equalsIgnoreCase("store manager")){
+            username = "storemanager85";
+        }else {
+            throw new RuntimeException("Invalid role");
+        }
+        System.out.println("Login as " + role);
+        login(username, "UserUser123");
     }
 }

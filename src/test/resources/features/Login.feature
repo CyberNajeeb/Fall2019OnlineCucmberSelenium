@@ -32,7 +32,7 @@ Feature: Login
     Then user should verify that title is a Dashboard
 
     @scenario_outline
-    Scenario Outline: username test
+Scenario Outline: user name test for user <name>
 
       When user logs in as with "<username>" username and "<password>" password
       Then user should be "<name>"
