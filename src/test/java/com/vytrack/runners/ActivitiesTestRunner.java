@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/fleet",
         dryRun = false,
         strict = false,
-        tags = "@scenario_outline_3",
+//        tags = "@view_calendar_events",
         plugin = {
                 "html:target/cucumber-html-report",
                 "json:target/cucumber2.json"

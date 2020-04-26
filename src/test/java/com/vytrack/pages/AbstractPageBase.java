@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * This class will be extended by page classes
- * Ant common webelements/locators can be stored here
+ * And common webelements/locators can be stored here
  * Since navigation menu doesn't belong to particular page
  * We cannot really create a dedicated page class to store
  * elements from that menu
@@ -61,11 +61,11 @@ public abstract class AbstractPageBase {
         BrowserUtilities.wait(4);
 
         actions.moveToElement(tabElement).
-                pause(2000).
+                pause(1000).
                 click(moduleElement).
                 build().perform();
 
-        //increase this wait rime if still failing
+        //increase this wait time if still failing
         BrowserUtilities.wait(4);
         waitForLoaderMask();
     }
