@@ -13,8 +13,6 @@ public class Hooks {
     public void setup(){
         System.out.println("Test setup");
         Driver.getDriver().manage().window().maximize();
-//        LoginPage loginPage = new LoginPage();
-//        loginPage.login();
     }
 
     @Before(value = "@driver", order = 1)
