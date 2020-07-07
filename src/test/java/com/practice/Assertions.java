@@ -23,6 +23,7 @@ public class Assertions {
         softAssert.assertAll();
     }
     //String phoneNumber = "(213)123-4567";
+    @Test
     public static boolean isValid (String phoneNumber){
         boolean isValid = true;
         for (int i = 0; i < phoneNumber.length() - 1; i++) {
