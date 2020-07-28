@@ -36,10 +36,10 @@ Feature: Login
     When user logs in as with "<username>" username and "<password>" password
     Then user should be "<name>"
     Examples:
-      | username        | password    | name             |
-      | user187         | UserUser123 | Jerel Vandervort |
-      | user200         | UserUser123 | Lonzo Leuschke   |
-      | storemanager52  | UserUser123 | Roma Medhurst    |
-      | storemanager66  | UserUser123 | Carlos Ernser    |
-      | salesmanager125 | UserUser123 | Cleveland Heller |
-      | salesmanager140 | UserUser123 | Jameson Paucek   |
+      | username        | password    | name              |
+      | user187         | UserUser123 | Elenor Kreiger    |
+      | user200         | UserUser123 | Meggie Macejkovic |
+      | storemanager52  | UserUser123 | Roma Medhurst     |
+      | storemanager66  | UserUser123 | Albin Lemke       |
+      | salesmanager125 | UserUser123 | Deion Fadel       |
+      | salesmanager140 | UserUser123 | Matteo Hegmann    |
